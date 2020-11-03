@@ -1,15 +1,15 @@
 import {Link} from 'react-router-dom'
 import React, {useState, useEffect} from 'react'
-import './css/Products.css'
+import '../css/Products.css'
 
 const getPromise = (data) => {
     return new Promise ((res, rej) => {
         setTimeout(() => {
             return res(data)
         }, 2000)
-    }
+    })}
     
-    const Productos = ({dataJson}) => {
+    const Products = ({dataJson}) => {
 
         const [sourceData, setSourceData] = useState ([]);
 
@@ -20,7 +20,7 @@ const getPromise = (data) => {
         return (
             <div id="product">
                {
-                   products.map(product =>(
+                   sourceData.map(product =>(
                        <div className="card" key={product._id}>
                            <Link to={`/product/${product._id}`}>
                                <img src={product.src} alt=""/>
@@ -34,7 +34,10 @@ const getPromise = (data) => {
                                <button>Añadir al carrito</button>
                            </div>
                        </div>
+                 ))}
                 </div>
+        )}
+        
 
 
-export default Productos
+export default Products

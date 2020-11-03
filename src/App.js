@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import {BrowserRouter as Router} from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Contador from './components/ItemCount'
-import Products from './components/Productos/ItemList';
+import ItemList from './components/Productos/ItemList';
 
 export default function App() {
   const [count, setCount] = useState(1);
@@ -27,7 +27,7 @@ export default function App() {
         <div className="app">
           <Router>
             <Navbar />
-            <itemList />
+            <ItemList />
             <Contador
               count={count}
               addCart={addCart}
