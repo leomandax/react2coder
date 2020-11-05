@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 //import "./button.css";
 
 const Contador = ({ count, addCart, lessCart }) => {
     return(
-   /* const [count, setCount] = useState(1);
+        
+    const [count, setCount] = useState(1);
 
     const addCart = () => {
         if(count===10){
@@ -20,11 +21,12 @@ const Contador = ({ count, addCart, lessCart }) => {
         }
         setCount(count - 1)
     }
-   return(*/
+   return(
         <div>
             <button onClick={addCart}>+</button>
             <p> {count} </p>
             <button onClick={lessCart}>-</button>
+            <button onClick={()=> addCart(product._id)}>Añadir al carrito</button>
         </div>
     );
 }

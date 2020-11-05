@@ -1,6 +1,7 @@
 import {Link} from 'react-router-dom'
 import React, {useState, useEffect} from 'react'
 import '../css/Products.css'
+import Contador from '../ItemCount'
 
 const getPromise = (data) => {
     return new Promise ((res, rej) => {
@@ -31,7 +32,11 @@ const getPromise = (data) => {
                                </h3>
                                <span>AR${product.price}</span>
                                <p>{product.description}</p>
-                               <button>Añadir al carrito</button>
+                               <Contador 
+                               count={count}
+                               addCart={addCart}
+                               lessCart={lessCart}
+                               />
                            </div>
                        </div>
                  ))}
@@ -40,4 +45,4 @@ const getPromise = (data) => {
         
 
 
-export default Products
+export default Products;
