@@ -28,15 +28,15 @@ const getPromise = (data) => {
                            </Link>
                            <div className="content">
                                <h3>
-                                   <Link to={`/product/${product._id}`}>{product.title}</Link>
+                                   {product.title}
                                </h3>
                                <span>AR${product.price}</span>
                                <p>{product.description}</p>
-                               <Contador 
+                               {/* <Contador 
                                count={count}
                                addCart={addCart}
                                lessCart={lessCart}
-                               />
+                               /> */}
                            </div>
                        </div>
                  ))}

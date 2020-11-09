@@ -9,9 +9,6 @@ function ItemList () {
     return(
         <section>
                 <Products dataJson = {dataJson} />
-                <Route path="/" component={Products} exact />
-                <Route path="/product" component={Products} exact  />
-                <Route path="/product/:id" component={Details} exact />
         </section>
     )
 }

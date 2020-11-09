@@ -1,9 +1,10 @@
 //es-lint disable-next-line
 import React from 'react';
-import {BrowserRouter as Router} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Navbar from './components/Navbar'
 //import Contador from './components/ItemCount'
 import ItemList from './components/Productos/ItemList';
+import Detail from './components/Detail';
 
 export default function App() {
   // const [count, setCount] = useState(1);
@@ -25,9 +26,16 @@ export default function App() {
   // }
     return(
         <div className="app">
+         <Navbar />
           <Router>
-            <Navbar />
-            <ItemList />
+            <Switch >
+              <Route exact path='/'>
+              <ItemList />
+              </Route> 
+              <Route exact path='/product/:id'>
+              <Detail />
+              </Route>
+            </Switch>
           </Router>
         </div>
     );
