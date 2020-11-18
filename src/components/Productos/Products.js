@@ -1,7 +1,9 @@
 import {Link} from 'react-router-dom'
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import '../css/Products.css'
-import Contador from '../ItemCount'
+// import Contador from '../ItemCount'
+import {DataContext} from '../Context'
+
 
 const getPromise = (data) => {
     return new Promise ((res, rej) => {
@@ -12,11 +14,14 @@ const getPromise = (data) => {
     
     const Products = ({dataJson}) => {
 
+        const Context = useContext(DataContext);
+        const{addCart}=Context;
+
         const [sourceData, setSourceData] = useState ([]);
 
         useEffect(() => {
             getPromise( dataJson ).then(result => setSourceData(result));
-        }, [dataJson])
+        }, [dataJson]);
 
         return (
             <div id="product">
@@ -32,6 +37,8 @@ const getPromise = (data) => {
                                </h3>
                                <span>AR${product.price}</span>
                                <p>{product.description}</p>
+                               <button onClick={ ()=>addCart(product._id)} >Añadir al carrito</button>
+                               {/* <button onClick={()=> addCart(product._id)}>Añadir al carrito</button> */}
                                {/* <Contador 
                                count={count}
                                addCart={addCart}
