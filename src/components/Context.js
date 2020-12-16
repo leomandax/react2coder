@@ -11,7 +11,6 @@ export class DataProvider extends Component {
                 "title": "Nike Shoes 01",
                 "src": "https://www.upsieutoc.com/images/2020/06/27/img1.jpg",
                 "price": 23000,
-                "colors": ["red", "black", "crimson", "teal"],
                 "count": 1
             },
             {
@@ -19,7 +18,6 @@ export class DataProvider extends Component {
                 "title": "Nike Shoes 02",
                 "src": "https://www.upsieutoc.com/images/2020/06/27/img2.jpg",
                 "price": 19000,
-                "colors": ["red", "crimson", "teal"],
                 "count": 1
             },
             {
@@ -27,14 +25,13 @@ export class DataProvider extends Component {
                 "title": "Nike Shoes 03",
                 "src": "https://www.upsieutoc.com/images/2020/06/27/img3.jpg",
                 "price": 50000,
-                "colors": ["lightblue", "white", "crimson", "teal"],
                 "count": 1
             },
             {
                 "_id": "4",
                 "title": "Nike Shoes 04",
                 "src": "https://www.upsieutoc.com/images/2020/06/27/img4.jpg",
-                "colors": ["orange", "black", "crimson", "teal"],
+                "price": 55000,
                 "count": 1
             },
             {
@@ -42,7 +39,6 @@ export class DataProvider extends Component {
                 "title": "Nike Shoes 05",
                 "src": "https://www.upsieutoc.com/images/2020/06/27/img5.jpg",
                 "price": 10000,
-                "colors": ["orange", "black", "crimson", "teal"],
                 "count": 1
             },
             {
@@ -50,7 +46,6 @@ export class DataProvider extends Component {
                 "title": "Nike Shoes 06",
                 "src": "https://www.upsieutoc.com/images/2020/06/27/img6.jpg",
                 "price": 17000,
-                "colors": ["orange", "black", "crimson", "teal"],
                 "count": 1
             }
         ],

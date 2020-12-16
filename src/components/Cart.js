@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import {DataContext} from './Context';
 import {Link} from 'react-router-dom'
-import Colors from './Colors'
+import firebase from 'firebase/app'
+import 'firebase/firestore';
 import './css/Details.css'
 import './css/Cart.css'
+import { getFirestore } from '../firebase/indexfb';
 
 export class Cart extends Component {
     static contextType = DataContext;
@@ -12,6 +14,25 @@ export class Cart extends Component {
         this.context.getTotal();
     }
     
+    async function createOrder() {
+        const db = getFirestore();
+        const orders = db.collection("orders");
+        const newOrder = {
+            buyer: userInfo,
+            items: cart,
+            date: firebase.firestore.Timestamp.fromDate(new Date()),
+            total: price(),
+        };
+
+        try {
+            const doc = await orders.add(newOrder);
+            console.log('Orden creada con id: ' , doc._id);
+        }  catch(err) {
+            console.log('Error creando la orden');
+        }
+    }
+
+
     render() {
         const {cart,increase,reduction,removeProduct,total} = this.context;
         if(cart.length === 0){
@@ -28,7 +49,6 @@ export class Cart extends Component {
                                         <h2>{item.title}</h2>
                                         <span>AR${item.price * item.count}</span>
                                     </div>
-                                    <Colors colors={item.colors}/>
                                     <p>{item.description}</p>
                                     <p>{item.content}</p>
                                     <div className="amount">

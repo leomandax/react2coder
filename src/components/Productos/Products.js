@@ -3,6 +3,7 @@ import React, {useState, useEffect, useContext} from 'react'
 import '../css/Products.css'
 // import Contador from '../ItemCount'
 import {DataContext} from '../Context'
+import { getFirestore } from '../../firebase/indexfb'
 
 
 const getPromise = (data) => {
@@ -20,8 +21,16 @@ const getPromise = (data) => {
         const [sourceData, setSourceData] = useState ([]);
 
         useEffect(() => {
-            getPromise( dataJson ).then(result => setSourceData(result));
-        }, [dataJson]);
+                const db=getFirestore();
+                const itemCollection = db.collection("items");
+                itemCollection.get().then((querySnapshot) => {
+                    if(querySnapshot.size === 0) {
+                        console.log('No hay items');
+                    }
+                const items = (querySnapshot.docs.map(doc =>({...doc.data(), id:doc._id})))
+                setSourceData(items);
+                })
+        },[]);
 
         return (
             <div id="product">
